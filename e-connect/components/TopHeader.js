@@ -6,15 +6,6 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import {Feather} from '@expo/vector-icons';
 
 export default function TopHeader() {
-    const {user, logout} = useAuth();
-
-    const handleProfile = () => {
-
-    }
-
-    const handleLogout = async () => {
-        await logout();
-    }
 
     return (
         <ImageBackground source={require("../assets/images/login2.jpg")} style={styles.shadow}>

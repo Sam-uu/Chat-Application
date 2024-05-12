@@ -3,8 +3,7 @@ import { View, Text, FlatList, ScrollView } from 'react-native'
 import React, { useRef } from 'react'
 import MessageItem from './MessageItem'
 
-export default function MessageList({ messages, currentUser }) {
-  const scrollViewRef = useRef();
+export default function MessageList({ messages, currentUser, scrollViewRef }) {
 
   return (
     <ScrollView

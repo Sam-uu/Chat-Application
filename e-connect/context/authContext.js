@@ -46,6 +46,7 @@ export const AuthContextProvider = ({ children }) => {
             if (msg.includes('auth/invalid-credential')) msg = 'Invalid credentials. Please check your email and password.';
             if (msg.includes('auth/invalid-email')) msg = 'Invalid email. Please check your email address.';
             if (msg.includes('auth/too-many-requests')) msg = 'Access disabled due to many failed requests. Please reset your password or try again later.';
+            if (msg.includes('auth/network-request-failed')) msg = 'Network request Failed. Please try again.';
             
             return { success: false, msg };
         }
@@ -63,7 +64,7 @@ export const AuthContextProvider = ({ children }) => {
     const register = async (email, password, firstName, lastName, profileUrl, phoneNumber) => {
         try {
             const response = await createUserWithEmailAndPassword(auth, email, password);
-            console.log('response: ', response?.user);
+            console.log('response*: ', response?.user);
 
             // setUser(response?.user);
             // setIsAuthenticated
@@ -83,6 +84,7 @@ export const AuthContextProvider = ({ children }) => {
             if (msg.includes('auth/invalid-email')) msg = 'Invalid email';
             if (msg.includes('auth/email-already-in-use')) msg = 'Email already in use. Please use another email address.';
             if (msg.includes('auth/weak-password')) msg = 'Password should be atleast 6 characters. Please use a stronger password.';
+            if (msg.includes('auth/network-request-failed')) msg = 'Network request Failed. Please try again.';
             
             console.log('sign up error: ', msg);
             return { success: false, msg };

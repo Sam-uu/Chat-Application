@@ -6,7 +6,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { useRouter } from "expo-router";
 
 const ios = Platform.OS === 'ios';
-export default function ChatList({ users }) {
+export default function ChatList({ users, currentUser }) {
     const router = useRouter();
 
     return (
@@ -24,7 +24,7 @@ export default function ChatList({ users }) {
                 ]}
                 keyExtractor={item => Math.random()}
                 showsVerticalScrollIndicator={false}
-                renderItem={({ item, index }) => <ChatItem item={item} router={router} index={index} />}
+                renderItem={({ item, index }) => <ChatItem item={item} currentUser={currentUser} router={router} index={index} />}
             >
 
             </FlatList>
